@@ -1,14 +1,25 @@
-import { FC, useCallback } from 'react'
+import { FC, useCallback, useEffect, useTransition } from 'react'
 import { useRouter } from 'next/router'
 import { IntlProvider, ReactIntlErrorCode } from 'react-intl'
 
 import { defaultlanguage, languages } from 'constants/constants'
 import type { LanguageProviderProps, IError } from './index.d'
 import type { LanguagesCodeData } from 'types'
+import LanguageProviderContext from './LanguageProviderContext'
 
 const LanguageProvider: FC<LanguageProviderProps> = ({ children, messages }) => {
+	const [isPending, startTransition] = useTransition()
+
 	const { locale = defaultlanguage.languageCode } = useRouter()
-	const currentLanguage = languages[locale as unknown as keyof typeof LanguagesCodeData]
+	const language = languages[locale as unknown as keyof typeof LanguagesCodeData]
+
+	useEffect(() => {
+		if (!isPending) {
+			startTransition(() => {
+				document.body.dir = language.direction
+			})
+		}
+	}, [language])
 
 	const handleError = useCallback((err: IError) => {
 		if (process.env.NODE_ENV === 'development') {
@@ -21,14 +32,16 @@ const LanguageProvider: FC<LanguageProviderProps> = ({ children, messages }) => 
 	}, [])
 
 	return (
-		<IntlProvider
-			locale={currentLanguage.languageCode}
-			messages={messages}
-			defaultLocale={locale}
-			onError={handleError}
+		<LanguageProviderContext.Provider
+			value={{
+				messages,
+				language
+			}}
 		>
-			{Boolean(messages) ? children : <span>loading...</span>}
-		</IntlProvider>
+			<IntlProvider locale={language.languageCode} messages={messages} defaultLocale={locale} onError={handleError}>
+				{Boolean(messages) ? children : <span>loading...</span>}
+			</IntlProvider>
+		</LanguageProviderContext.Provider>
 	)
 }
 

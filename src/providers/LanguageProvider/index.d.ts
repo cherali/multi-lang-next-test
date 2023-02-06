@@ -21,3 +21,8 @@ export type IError =
   InvalidConfigError |
   UnsupportedFormatterError |
   FormatError
+
+export interface LanguageProviderContextProps {
+  language: any;
+  messages: any;
+}

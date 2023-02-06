@@ -1,4 +1,10 @@
 {
   "site.defaultTitle": "Multi-language App - Title",
-  "site.description": "Multi-language App - Description"
+  "site.description": "Multi-language App - Description",
+  "app.language.fa": "فارسی",
+  "app.language.en": "English",
+  "app.header.home": "Home",
+  "app.header.events": "Events",
+  "app.header.aboutUs": "About us",
+  "app.header.contactUs": "Contact us"
 }

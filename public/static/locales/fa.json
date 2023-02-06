@@ -1,4 +1,10 @@
 {
   "site.defaultTitle": "آپ جند زبانه - عنوان",
-  "site.description": "آپ جند زبانه - توضیح"
+  "site.description": "آپ جند زبانه - توضیح",
+  "app.language.fa": "فارسی",
+  "app.language.en": "English",
+  "app.header.home": "خانه",
+  "app.header.events": "رویدادها",
+  "app.header.aboutUs": "درباره‌ما",
+  "app.header.contactUs": "تماس با ما"
 }
