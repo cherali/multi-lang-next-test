@@ -4,8 +4,11 @@ import type { IntlMessagesType } from 'types'
 import { defaultlanguage } from 'constants/constants'
 import HTMLTagsProvider from 'providers/HTMLTagsProvider'
 import DefaultLayout from 'Layouts/DefaultLayout'
+import { Lato } from '@next/font/google'
 
 import 'theme/globals.css'
+
+const font = Lato({ weight: '400', subsets: ['latin'] })
 
 interface AppPageProps extends AppProps {
 	messages: IntlMessagesType
@@ -13,12 +16,14 @@ interface AppPageProps extends AppProps {
 
 function MyApp({ Component, pageProps, messages }: AppPageProps) {
 	return (
-		<LanguageProvider messages={messages}>
-			<HTMLTagsProvider />
-			<DefaultLayout>
-				<Component {...pageProps} />
-			</DefaultLayout>
-		</LanguageProvider>
+		<main className={font.className}>
+			<LanguageProvider messages={messages}>
+				<HTMLTagsProvider />
+				<DefaultLayout>
+					<Component {...pageProps} />
+				</DefaultLayout>
+			</LanguageProvider>
+		</main>
 	)
 }
 
