@@ -3,6 +3,7 @@ import LanguageProvider from 'providers/LanguageProvider'
 import type { IntlMessagesType } from 'types'
 import { defaultlanguage } from 'constants/constants'
 import HTMLTagsProvider from 'providers/HTMLTagsProvider'
+import DefaultLayout from 'Layouts/DefaultLayout'
 
 import 'theme/globals.css'
 
@@ -14,7 +15,9 @@ function MyApp({ Component, pageProps, messages }: AppPageProps) {
 	return (
 		<LanguageProvider messages={messages}>
 			<HTMLTagsProvider />
-			<Component {...pageProps} />
+			<DefaultLayout>
+				<Component {...pageProps} />
+			</DefaultLayout>
 		</LanguageProvider>
 	)
 }
