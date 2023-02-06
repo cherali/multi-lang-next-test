@@ -40,7 +40,6 @@
     "eslint-plugin-jsx-a11y": "6.7.1",
     "eslint-plugin-react-hooks": "4.6.0",
     "prettier": "2.8.3",
-    "tailwindcss-rtl": "0.9.0",
     "ts-node": "10.9.1"
   }
 }
