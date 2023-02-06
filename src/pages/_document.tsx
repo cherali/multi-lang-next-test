@@ -8,7 +8,7 @@ interface MyDocumentProps {
 
 function MyDocument({ language }: MyDocumentProps) {
 	return (
-		<Html lang={language.languageCode}>
+		<Html>
 			<Head />
 			<body dir={language.direction}>
 				<Main />
