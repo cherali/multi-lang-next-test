@@ -8,7 +8,7 @@ import { DefaultHeaderMessages } from './DefaultHeader.messages'
 import useLanugage from 'providers/LanguageProvider/useLanguage'
 
 const DefaultHeader: FC<DefaultHeaderProps> = () => {
-	const { pathname, push, asPath } = useRouter()
+	const { pathname, push, asPath, events } = useRouter()
 	const { formatMessage } = useIntl()
 	const ref = useRef<HTMLDivElement>(null)
 	const [menuOpen, setMenuOpen] = useState(false)
@@ -52,6 +52,8 @@ const DefaultHeader: FC<DefaultHeaderProps> = () => {
 		})
 	}
 
+	const closeMenu = () => setMenuOpen(false)
+
 	// handle click outside
 	useEffect(() => {
 		const handleClickOutside = (event: any) => {
@@ -62,8 +64,11 @@ const DefaultHeader: FC<DefaultHeaderProps> = () => {
 				})
 			}
 		}
+		events.on('routeChangeComplete', closeMenu)
+
 		document.addEventListener('click', handleClickOutside, true)
 		return () => {
+			events.off('routeChangeComplete', closeMenu)
 			document.removeEventListener('click', handleClickOutside, true)
 		}
 	}, [])
