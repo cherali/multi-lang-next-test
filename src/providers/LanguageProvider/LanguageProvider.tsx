@@ -34,7 +34,6 @@ const LanguageProvider: FC<LanguageProviderProps> = ({ children, messages }) => 
 	return (
 		<LanguageProviderContext.Provider
 			value={{
-				messages,
 				language
 			}}
 		>

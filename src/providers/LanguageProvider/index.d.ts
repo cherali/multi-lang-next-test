@@ -7,7 +7,7 @@ import type {
   UnsupportedFormatterError,
   FormatError
 } from 'react-intl'
-import type { IntlMessagesType } from 'types'
+import type { IntlMessagesType, LanguageDataItem } from 'types'
 
 export interface LanguageProviderProps {
   children: ReactNode;
@@ -23,6 +23,5 @@ export type IError =
   FormatError
 
 export interface LanguageProviderContextProps {
-  language: any;
-  messages: any;
+  language: LanguageDataItem;
 }
