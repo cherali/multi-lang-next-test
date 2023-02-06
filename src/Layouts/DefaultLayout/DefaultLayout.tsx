@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 import type { DefaultLayoutProps } from './index.d'
-import DefaultHeader from './DefaultHeader/DefaultHeader'
+import DefaultHeader from './DefaultHeader'
 
 const DefaultLayout: FC<DefaultLayoutProps> = ({ children }) => {
 	return (
