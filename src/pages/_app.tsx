@@ -1,9 +1,10 @@
 import App, { AppContext, AppProps } from 'next/app'
 import LanguageProvider from 'providers/LanguageProvider'
 import type { IntlMessagesType } from 'types'
+import { defaultlanguage } from 'constants/constants'
+import HTMLTagsProvider from 'providers/HTMLTagsProvider'
 
 import 'theme/globals.css'
-import { defaultlanguage } from 'constants/constants'
 
 interface AppPageProps extends AppProps {
 	messages: IntlMessagesType
@@ -12,6 +13,7 @@ interface AppPageProps extends AppProps {
 function MyApp({ Component, pageProps, messages }: AppPageProps) {
 	return (
 		<LanguageProvider messages={messages}>
+			<HTMLTagsProvider />
 			<Component {...pageProps} />
 		</LanguageProvider>
 	)
