@@ -13,6 +13,7 @@
     "cypress": "cypress open"
   },
   "dependencies": {
+    "@formatjs/ts-transformer": "3.11.6",
     "@next/font": "13.1.6",
     "@types/node": "18.11.19",
     "@types/react": "18.0.27",
@@ -23,6 +24,7 @@
     "postcss": "8.4.21",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-intl": "6.2.7",
     "tailwindcss": "3.2.4",
     "typescript": "4.9.5"
   },
