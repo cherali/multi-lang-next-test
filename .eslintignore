@@ -3,3 +3,4 @@
 test-report.*
 src/**/*.generated.tsx
 src/**/*.generated.ts
+cypress

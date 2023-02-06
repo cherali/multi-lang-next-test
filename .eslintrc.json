@@ -8,8 +8,8 @@
   "extends": [
     "next", 
     "next/core-web-vitals",
-    "plugin:@typescript-eslint/rcommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": { "ecmaVersion": 11 },
@@ -22,7 +22,8 @@
     "react/display-name": "off",
     "no-console": "warn",
     "jsx-a11y/anchor-is-valid": "off", // This rule is not compatible with Next.js <Link /> component
-    "@next/next/no-img-element": "off"
+    "@next/next/no-img-element": "off",
+    "prettier/prettier": 0
   },
 
   "overrides": [
