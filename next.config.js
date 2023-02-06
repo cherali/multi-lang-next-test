@@ -9,6 +9,12 @@ const nextConfig = {
     defaultLocale: 'default',
     localeDetection: false,
   },
+  compiler: {
+    reactRemoveProperties: true,
+    removeConsole: process.env.NODE_ENV === 'production' && {
+      exclude: ['error'],
+    },
+  },
 }
 
 module.exports = nextConfig
